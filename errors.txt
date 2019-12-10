@@ -1,0 +1,1 @@
+./du: nftw: '/': Operation not permitted

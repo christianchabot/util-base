@@ -1,0 +1,53 @@
+
+INCOMPLETE
+	- cal.c
+	- rm.c
+	- strings.c
+	- stty.c
+	- wc.c /* inner loops could be made into functions and counting words is a pain in the ass */
+	- who.c
+
+REVIEW
+	- cmp.c /* mixed iovec and buffer writes needs to be fixed */
+	- chmod.c /* parsemode needs to be finished */
+	- head.c /* Should buffer the writes. */
+	- id.c /* need more testing */
+	- time.c /* Fix / look at buffer size. */
+	- touch.c /* needs testing */ /* d flag function needs to be fixed and should utimbuf instead of timespec and utime.h */
+
+COMPLETE
+	- basename.c
+	- cat.c
+	- chgrp.c
+	- chown.c
+	- date.c
+	- dirname.c
+	- echo.c
+	- env.c
+	- false.c
+	- kill.c /* should add signals that are extensions to posix */
+	- link.c
+	- mkdir.c /* figure out if the posix docs are correct for the parent umask */
+	- nohup.c
+	- rmdir.c
+	- sleep.c
+	- true.c
+	- tty.c
+	- pwd.c
+	- unlink.c
+
+TODO
+	- finish the parsemode function
+	- the recurse function needs to be looked at. Need to decide if it should return the return value of func.
+
+	- Create function write_buffer that takes in a buffer and writes it out if it gets full. ******* (head needs it)
+	- Could create functions that each write decimal octal hex and floats to
+	  a buffer and writes the buffer out if it is full use these instead of sprintf. */
+
+	- Use USAGEBEG and USAGEEND and make sure return values are correct.
+	- Create a function that manages filling a buffer and writing it out to a fd
+	  and returning an offset to where it left off.
+	- Ensure all programs write out diagnostics.
+	- Make IOVBEG and IOVEND better so they do not require {} to comply with c89. * Maybe *
+	- Ensure all programs use XBD utility syntax guidelines or not.
+	- Figure out a way to manage getopt properly.
